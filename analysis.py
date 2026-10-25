@@ -17,11 +17,19 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 # 터미널 UTF-8 설정
 sys.stdout.reconfigure(encoding='utf-8')
 
-# 스타일 및 폰트 설정 (Noto Sans KR 1순위)
+# 스타일 및 가독성 최적화 폰트 설정 (맑은 고딕 우선 적용하여 또렷한 가독성 확보)
 plt.style.use('seaborn-v0_8-whitegrid' if 'seaborn-v0_8-whitegrid' in plt.style.available else 'default')
-plt.rcParams['font.sans-serif'] = ['Noto Sans KR', 'Malgun Gothic', 'DejaVu Sans', 'Arial']
+plt.rcParams['font.sans-serif'] = ['Malgun Gothic', 'NanumGothic', 'Noto Sans KR', 'DejaVu Sans']
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['font.size'] = 11
+plt.rcParams['axes.labelsize'] = 12
+plt.rcParams['axes.labelweight'] = 'bold'
+plt.rcParams['axes.titlesize'] = 14
+plt.rcParams['axes.titleweight'] = 'bold'
+plt.rcParams['xtick.labelsize'] = 10.5
+plt.rcParams['ytick.labelsize'] = 10.5
+plt.rcParams['legend.fontsize'] = 10.5
 
 DATA_DIR = 'data'
 IMG_DIR = 'images'
@@ -264,14 +272,14 @@ def generate_visualizations(yearly_df):
 
     plt.scatter([2030], [val_2030], color='#e74c3c', s=60, zorder=5)
     plt.annotate(
-        f'2030년 목표 예측: {val_2030:.1f}초\\n({val_2030/60:.2f}분)',
+        f'2030년 목표 예측: {val_2030:.1f}초\n({val_2030/60:.2f}분)',
         xy=(2030, val_2030),
         xytext=(2027.5, val_2030 - 25),
         arrowprops=dict(facecolor='#e74c3c', shrink=0.08, width=1.5, headwidth=7),
-        fontsize=9.5, weight='bold', bbox=dict(boxstyle='round,pad=0.4', facecolor='white', alpha=0.9)
+        fontsize=10.5, weight='bold', color='#1E293B', bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#E2E8F0', alpha=0.95)
     )
 
-    plt.title('100년(1926-2025) 데이터 기반 미래 5년(2026-2030) 대중음악 곡 길이 예측\\n현재 시점(2026년 9월)을 기점으로 한 향후 5년 전망', fontsize=14, weight='bold', pad=15)
+    plt.title('100년(1926-2025) 데이터 기반 미래 5년(2026-2030) 대중음악 곡 길이 예측\n현재 시점(2026년)을 기점으로 한 향후 5년 전망', fontsize=14, weight='bold', pad=15)
     plt.xlabel('연도 (Year)', fontsize=11)
     plt.ylabel('평균 곡 길이 (초 / Seconds)', fontsize=11)
     plt.legend(loc='lower left', frameon=True)
