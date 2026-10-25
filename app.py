@@ -47,7 +47,7 @@ preset = st.sidebar.radio(
     options=[
         "전체 100년사 (1926-2025)",
         "마이크 탄생 & SP 시대 (1926-1950)",
-        "비틀즈 & 핑크 플로이드 (1960-1980)",
+        "LP 앨범 록 대팽창기 (1960-1980)",
         "CD 전성기 (1980-2000)",
         "스트리밍 & 숏폼 완결 (2000-2025)"
     ],
@@ -58,7 +58,7 @@ preset = st.sidebar.radio(
 # 프리셋 선택에 따른 기본 범위 매핑
 preset_map = {
     "마이크 탄생 & SP 시대 (1926-1950)": (1926, 1950),
-    "비틀즈 & 핑크 플로이드 (1960-1980)": (1960, 1980),
+    "LP 앨범 록 대팽창기 (1960-1980)": (1960, 1980),
     "CD 전성기 (1980-2000)": (1980, 2000),
     "스트리밍 & 숏폼 완결 (2000-2025)": (2000, 2025),
     "전체 100년사 (1926-2025)": (1926, 2025)
@@ -509,7 +509,7 @@ st.markdown(f"""
     <div class="hero-main-title">현대 대중음악 100년의 곡 길이 및 사운드 진화</div>
     <div class="hero-desc">
         1926년 <b>전기 마이크 녹음(78 RPM SP 3분 한계)</b>에서 출발하여, 
-        <b>1970년대 핑크 플로이드와 비틀즈의 5분대 대곡 전성기</b>를 거쳐, 
+        <b>1970년대 33.3 RPM LP 앨범 록 대팽창 정점(4분 26초)</b>을 거쳐, 
         <b>2025년 숏폼/스트리밍 완결</b>로 다시 100년 전의 3분대로 완벽 회귀한 거대한 역사적 순환 궤적을 분석합니다.
     </div>
 </div>
@@ -530,11 +530,11 @@ st.markdown("""
     </div>
     <div class="timeline-node">
         <div class="timeline-node-year">🎸 1963–68년</div>
-        <div class="timeline-node-desc">비틀즈 데뷔 & Hey Jude 혁명</div>
+        <div class="timeline-node-desc">AM 라디오 팝 & 대곡 싱글 실험</div>
     </div>
     <div class="timeline-node timeline-node-peak">
         <div class="timeline-node-year">👑 1976년 ★</div>
-        <div class="timeline-node-desc">핑크 플로이드 록 정점 (266.4초)</div>
+        <div class="timeline-node-desc">LP 앨범 록 최고 정점 (266.4초)</div>
     </div>
     <div class="timeline-node">
         <div class="timeline-node-year">📱 2025년</div>
@@ -568,7 +568,7 @@ st.markdown(f"""
             <span class="metric-badge" style="background: rgba(245, 158, 11, 0.12); color: #F59E0B;">👑 {int(max_row['year'])} PEAK</span>
         </div>
         <div class="metric-value">{max_row['duration_sec']:.1f}<span class="metric-unit">초 ({max_row['duration_min']:.2f}분)</span></div>
-        <div class="metric-footer">핑크 플로이드 앨범 록 황금기</div>
+        <div class="metric-footer">33.3 RPM LP 앨범 록 황금기</div>
     </div>
     <div class="metric-card">
         <div class="metric-header">
@@ -659,7 +659,7 @@ with t1:
     st.markdown("""
     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
         <span style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">대중음악 곡 길이 100년 순환 파형 (1926–2025)</span>
-        <span style="font-size: 0.76rem; color: var(--text-muted);">마이크(3분) ➔ 핑크 플로이드(5분대) ➔ 숏폼(3분 회귀)</span>
+        <span style="font-size: 0.76rem; color: var(--text-muted);">SP(3분) ➔ LP 앨범 록(4분 26초 정점) ➔ 숏폼(3분 원점 회귀)</span>
     </div>
     """, unsafe_allow_html=True)
     fig1 = go.Figure()
@@ -693,9 +693,9 @@ with t1:
     milestones = [
         (1926, 170.4, "🎙️ 마이크 녹음 (170초)", "#0284C7"),
         (1948, 220.0, "💿 LP 발명 (1948)", "#64748B"),
-        (1963, 195.7, "🎸 비틀즈 데뷔 (1963)", "#8E44AD"),
+        (1963, 195.7, "📻 라디오 팝 표준 (1963)", "#8E44AD"),
         (1968, 217.3, "🔥 Hey Jude (1968)", "#8E44AD"),
-        (1976, 266.4, "👑 핑크 플로이드 정점 (266초)", "#D97706"),
+        (1976, 266.4, "👑 LP 앨범 록 정점 (266초)", "#D97706"),
         (1982, 250.2, "💿 CD & MTV (1982)", "#64748B"),
         (2008, 240.5, "🎧 Spotify (2008)", "#1DB954"),
         (2025, 188.4, "🏁 숏폼 완결 (188초)", "#EF4444")
@@ -735,7 +735,7 @@ with t1:
         <div class="callout-content">
             <div class="callout-title">100년 순환 사이클 관찰 포인트</div>
             <div class="callout-text">
-                1926년 78 RPM SP 셸락 음반의 물리적 한계(170.4초, 2분 50초)에서 시작된 대중음악은, 1976년 핑크 플로이드 앨범 록 전성기(266.4초, 4분 26초)로 
+                1926년 78 RPM SP 셸락 음반의 물리적 한계(170.4초, 2분 50초)에서 시작된 대중음악은, 1976년 33.3 RPM LP 앨범 록 전성기(266.4초, 4분 26초)로 
                 정점을 기록한 뒤, 2025년 모바일 스트리밍 30초 정산 및 틱톡 숏폼 완결로 인해 <b>100년 전 마이크 녹음 탄생 시절의 3분대(188.4초, 3분 8초)로 완벽히 회귀</b>했습니다.
             </div>
         </div>
